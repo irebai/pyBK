@@ -174,7 +174,7 @@ def py_webrtcvad(data, fs, fs_vad, hoplength=30, vad_mode=0):
     elif data.dtype.kind == 'f':
         if np.abs(data).max() >= 1:
             data = data / np.abs(data).max() * 0.9
-            warnings.warn('input data was rescaled.')
+            print('Warning: input data was rescaled.')
         data = (data * 2**15).astype('f')
     else:
         raise ValueError('data dtype must be int or float.')
